@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import Alert from "../components/Alert";
 
 export default function AddRecipe({ setArticlesList }) {
   const [formData, setFormData] = useState({
@@ -73,6 +74,7 @@ export default function AddRecipe({ setArticlesList }) {
         />
         <button type="submit">Invia</button>
       </form>
+      <Alert message="Alert qui" />
     </div>
   );
 }
