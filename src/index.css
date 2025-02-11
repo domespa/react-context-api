@@ -48,6 +48,8 @@ body {
 button {
   margin: auto;
   margin-top: 10px;
+  margin-bottom: 100px;
+  display: flex;
 }
 
 img {
@@ -80,25 +82,25 @@ header a {
 }
 
 /*-------------
-    LIST RECIPE
+    ALERT
 -------------*/
 
-/* .listrecipeimg {
-  background-image: url("/img/listrecipeimg.jpg");
-  position: relative;
-  background-position: center;
-  background-size: cover;
-  height: 100vh;
-} */
+.alert {
+  background-color: lightgreen;
+  padding: 20px;
+  width: 300px;
+  margin: 30px auto;
+}
 
 /*-------------
     ADD RECIPE
 -------------*/
 
 input {
-  margin-left: 10px;
+  margin: auto;
   margin-bottom: 20px;
   margin-top: 5px;
+  width: 400px;
 }
 
 select {
@@ -150,6 +152,9 @@ label {
   margin-bottom: 10px;
 }
 
+.container h1 {
+  margin-bottom: 20px;
+}
 /*-------------
     FOOTER
 -------------*/

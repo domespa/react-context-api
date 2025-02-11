@@ -11,20 +11,23 @@ import ListRecipe from "./pages/ListRecipe";
 import AddRecipe from "./pages/AddRecipe";
 import DefLayout from "./layouts/DefLayout";
 import Recipe from "./pages/Recipe";
+import { AlertProvider } from "./contexts/AlertContext";
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route element={<DefLayout />}>
-          <Route index element={<Homepage />} />
-          <Route path="/ListRecipe" element={<ListRecipe />} />
-          <Route path="/ListRecipe/:id" element={<Recipe />} />
-          <Route path="/AddRecipe" element={<AddRecipe />} />
-          <Route path="/AboutUs" element={<AboutUs />} />
-        </Route>
-        <Route path="*" element={<PageNotFound />}></Route>
-      </Routes>
-    </BrowserRouter>
+    <AlertProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<DefLayout />}>
+            <Route index element={<Homepage />} />
+            <Route path="/ListRecipe" element={<ListRecipe />} />
+            <Route path="/ListRecipe/:id" element={<Recipe />} />
+            <Route path="/AddRecipe" element={<AddRecipe />} />
+            <Route path="/AboutUs" element={<AboutUs />} />
+          </Route>
+          <Route path="*" element={<PageNotFound />}></Route>
+        </Routes>
+      </BrowserRouter>
+    </AlertProvider>
   );
 }

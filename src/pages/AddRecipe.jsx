@@ -1,6 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import Alert from "../components/Alert";
+import { useAlertContext } from "../contexts/AlertContext";
+
+// IMPORTO CONTESTO
+import { AlertProvider } from "../contexts/AlertContext";
 
 export default function AddRecipe({ setArticlesList }) {
   const [formData, setFormData] = useState({
@@ -23,6 +27,11 @@ export default function AddRecipe({ setArticlesList }) {
     axios.post("http://localhost:3005/posts", formData).then((res) => {
       setArticlesList((currentList) => [...currentList, res.data]);
     });
+
+    setAlertData({
+      message: "Ricetta aggiunta con successo",
+    });
+
     setFormData({
       title: "",
       content: "",
@@ -30,6 +39,15 @@ export default function AddRecipe({ setArticlesList }) {
       avaible: "",
     });
   };
+
+  const { setAlertData } = useAlertContext();
+
+  useEffect(() => {
+    setAlertData({
+      message: "",
+    });
+  }, [setAlertData]);
+
   return (
     <div className="container">
       <h1>Aggiungi Articolo</h1>
@@ -74,7 +92,7 @@ export default function AddRecipe({ setArticlesList }) {
         />
         <button type="submit">Invia</button>
       </form>
-      <Alert message="Alert qui" />
+      {setAlertData && <Alert />}
     </div>
   );
 }
